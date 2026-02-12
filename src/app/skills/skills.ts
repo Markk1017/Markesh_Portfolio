@@ -37,10 +37,10 @@ export class Skills {
       icon: '🌐',
       skills: [
         { name: 'Angular' },
-        { name: 'TypeScript & JavaScript (ES6+)' },
+        { name: 'JavaScript' },
         { name: 'HTML5 & CSS3' },
         
-        { name: 'Bootstrap & Responsive Design' },
+        { name: 'Bootstrap' },
         
         { name: 'Component-Based UI Development' }
       ]
