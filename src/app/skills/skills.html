@@ -1,0 +1,33 @@
+<section class="section skills-section">
+	<div class="container">
+		<div class="section-head">
+			<h2 class="heading"><span class="heading-icon">🧰</span> My <span>Skills</span></h2>
+		</div>
+
+		<div class="skills-grid">
+			@for (category of skillCategories; track category.title) {
+				<div class="skill-card">
+					<div class="skill-header">
+						<div class="skill-icon">{{ category.icon }}</div>
+						<h3 class="skill-title">{{ category.title }}</h3>
+					</div>
+					<ul class="skill-list">
+						@for (skill of category.skills; track skill.name) {
+							<li>
+								<span class="skill-bullet">▸</span>
+								<span class="skill-name">{{ skill.name }}</span>
+							</li>
+						}
+					</ul>
+				</div>
+			}
+		</div>
+
+		<!-- <div class="skills-note">
+			<p class="muted">
+				<strong>Focus Areas:</strong> Building scalable backend systems, designing clean RESTful APIs, 
+				implementing secure authentication, and creating responsive user interfaces with modern frameworks.
+			</p>
+		</div> -->
+	</div>
+</section>

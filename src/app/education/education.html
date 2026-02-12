@@ -1,0 +1,55 @@
+<section class="section education-section">
+	<div class="container">
+		<h2 class="heading"><span class="heading-icon">🎓</span> My <span>Education</span></h2>
+
+		<div class="education-container">
+			<div class="timeline">
+				@for (edu of educationList; track edu.degree) {
+					<div class="timeline-item">
+						
+						
+							<div class="timeline-header">
+								<div class="timeline-title-section">
+									<h3 class="degree-title">{{ edu.degree }}</h3>
+									<div class="education-info">
+										<span class="field-name">{{ edu.field }}</span>
+										<!-- <span class="duration-badge">{{ edu.duration }}</span> -->
+									</div>
+									<div class="institution-info">
+										<span class="institution-name">{{ edu.institution }}</span>
+										<span class="location-text">{{ edu.location }}</span>
+									</div>
+								</div>
+								<span class="period-text">{{ edu.period }}</span>
+							</div>
+							
+							<!-- <p class="description">{{ edu.description }}</p>
+							
+							@if (edu.achievements) {
+								<div class="achievements-section">
+									<h4 class="section-subtitle">Key Achievements:</h4>
+									<ul class="achievements-list">
+										@for (achievement of edu.achievements; track achievement) {
+											<li>{{ achievement }}</li>
+										}
+									</ul>
+								</div>
+							} -->
+
+							<!-- @if (edu.coursework) {
+								<div class="coursework-section">
+									<h4 class="section-subtitle">Relevant Coursework:</h4>
+									<div class="coursework-tags">
+										@for (course of edu.coursework; track course) {
+											<span class="course-tag">{{ course }}</span>
+										}
+									</div>
+								</div>
+							} -->
+						</div>
+					
+				}
+			</div>
+		</div>
+	</div>
+</section>

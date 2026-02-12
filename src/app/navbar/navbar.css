@@ -1,0 +1,190 @@
+/* Navbar custom styles */
+.navbar-custom {
+	background: linear-gradient(120deg, rgba(255,255,255,0.86), rgba(255,255,255,0.62));
+	backdrop-filter: blur(10px) saturate(140%);
+	border-bottom: 1px solid rgba(3,43,91,0.08);
+	box-shadow: 0 10px 30px rgba(3,43,91,0.08);
+	padding: 0.9rem 1rem;
+	transition: background 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+
+.dark .navbar-custom {
+	background: linear-gradient(120deg, rgba(8,12,18,0.72), rgba(8,12,18,0.35));
+	border-bottom: 1px solid rgba(255,255,255,0.06);
+	box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.navbar-brand {
+	font-weight: 900;
+	font-size: 1.2rem;
+	letter-spacing: 0.6px;
+	color: #032B5B;
+	text-transform: uppercase;
+}
+.dark .navbar-brand { color: #e7eefc; }
+
+.navbar-custom .nav-link {
+	color: var(--muted);
+	transition: color 160ms ease, transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+	padding: 0.5rem 0.9rem;
+	border-radius: 999px;
+	font-size: 1rem;
+}
+.navbar-custom .nav-link:hover {
+	color: #f98137;
+	background: rgba(247, 207, 182, 0.12);
+	box-shadow: 0 8px 18px rgba(249, 188, 150, 0.18);
+	transform: translateY(-2px);
+}
+
+.form-check-input { cursor: pointer; height: 1.25rem; width: 2.1rem; }
+.form-check-label { font-size: 0.85rem; color: var(--muted); margin-left: 0.35rem; }
+
+/* Hide burger button on desktop */
+.nav-burger {
+	display: none;
+}
+
+/* Ensure navbar container behaves correctly */
+.navbar-custom .container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+}
+
+@media (max-width: 991px) { 
+	.navbar-custom { padding: 0.75rem 1rem; } 
+	.navbar-custom .nav-link { padding: 0.45rem 0.75rem; font-size: 0.95rem; } 
+}
+
+/* Mobile off-canvas behaviour */
+@media (max-width: 768px) {
+
+	/* Show burger button on mobile */
+	.nav-burger { 
+		display: inline-flex !important;
+		align-items: center; 
+		justify-content: center; 
+		width: 44px; 
+		height: 38px; 
+		border-radius: 8px;
+		background: rgba(59, 130, 246, 0.08);
+		border: none;
+		transition: background 0.3s ease;
+		cursor: pointer;
+		padding: 0;
+	}
+	.nav-burger:hover {
+		background: rgba(59, 130, 246, 0.15);
+	}
+	.nav-burger .burger-line { 
+		display: block; 
+		width: 20px; 
+		height: 2px; 
+		background: var(--text); 
+		margin: 3px 0; 
+		transition: transform 220ms ease, opacity 220ms ease; 
+	}
+
+	/* Hide desktop nav items on mobile */
+	.navbar-custom .navbar-nav { 
+		position: fixed;
+		top: 70px;
+		right: -100%;
+		width: 85%;
+		max-width: 320px;
+		height: calc(100vh - 70px);
+		background: rgba(255,255,255,0.98);
+		backdrop-filter: blur(20px) saturate(180%);
+		-webkit-backdrop-filter: blur(20px) saturate(180%);
+		border-left: 1px solid rgba(3,43,91,0.08);
+		box-shadow: -10px 0 40px rgba(3,43,91,0.15);
+		padding: 2rem 1.5rem;
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 0.25rem;
+		align-items: stretch !important;
+		transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+		z-index: 3000;
+		overflow-y: auto;
+		margin: 0 !important;
+	}
+	
+	.dark .navbar-custom .navbar-nav {
+		background: rgba(8,12,18,0.98);
+		border-left: 1px solid rgba(255,255,255,0.06);
+		box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+	}
+	
+	/* Show menu when nav-open class is applied */
+	.navbar-custom.nav-open .navbar-nav { 
+		right: 0;
+	}
+	
+	/* Style nav items in mobile menu */
+	.navbar-custom .navbar-nav .nav-item { 
+		width: 100%;
+		padding: 0 !important;
+		margin: 0;
+	}
+	
+	.navbar-custom .navbar-nav .nav-link { 
+		padding: 0.85rem 1rem;
+		font-size: 1.05rem;
+		color: var(--text);
+		border-radius: 8px;
+		width: 100%;
+		text-align: left;
+		display: block;
+	}
+	
+	.navbar-custom .navbar-nav .nav-link:hover {
+		background: rgba(247, 207, 182, 0.2);
+		transform: none;
+	}
+
+	/* Overlay */
+	.nav-overlay { 
+		position: fixed; 
+		inset: 0; 
+		background: rgba(2,6,23,0.6); 
+		z-index: 2500;
+		top: 70px;
+	}
+}
+
+@media (max-width: 480px) {
+	.navbar-brand {
+		font-size: 1rem;
+		letter-spacing: 0.3px;
+		max-width: calc(100vw - 120px);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	
+	.navbar-custom .navbar-nav {
+		width: 90%;
+		max-width: 100%;
+		padding: 1.5rem 1rem;
+	}
+	
+	.navbar-custom .navbar-nav .nav-link {
+		font-size: 1rem;
+		padding: 0.75rem 0.85rem;
+	}
+}
+
+@media (max-width: 360px) {
+	.navbar-brand {
+		font-size: 0.9rem;
+		max-width: calc(100vw - 100px);
+	}
+	
+	.navbar-custom {
+		padding: 0.65rem 0.85rem;
+	}
+}
+
+

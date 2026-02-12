@@ -1,0 +1,100 @@
+<section class="section projects-section">
+	<div class="container">
+		<h2 class="heading"><span class="heading-icon">🚀</span> My <span>Projects</span></h2>
+
+		<div class="projects-grid">
+			@for (project of projects; track project.id) {
+				<article class="project-card" (click)="openProject(project)">
+					<div class="project-thumbnail">
+						<img [src]="project.thumbnail" [alt]="project.title" />
+						<div class="project-overlay">
+							<span class="view-details">View Details →</span>
+						</div>
+					</div>
+					<div class="project-body">
+						<h3 class="project-title">{{ project.title }}</h3>
+						<p class="project-description">{{ project.shortDescription }}</p>
+						<div class="project-tech">
+							@for (tech of project.techStack; track tech) {
+								<span class="tech-badge">{{ tech }}</span>
+							}
+						</div>
+					</div>
+				</article>
+			}
+		</div>
+	</div>
+</section>
+
+<!-- Project Modal -->
+@if (selectedProject) {
+	<div class="modal-backdrop" (click)="onModalBackdropClick($event)">
+		<div class="modal-container">
+			<button class="modal-close" (click)="closeModal()" aria-label="Close modal">
+				<span>×</span>
+			</button>
+			
+			<div class="modal-content">
+				<div class="modal-header">
+					<img [src]="selectedProject.thumbnail" [alt]="selectedProject.title" class="modal-thumbnail" />
+					<div class="modal-title-section">
+						<h2 class="modal-title">{{ selectedProject.title }}</h2>
+						<p class="modal-subtitle">{{ selectedProject.shortDescription }}</p>
+						<div class="modal-tech-stack">
+							@for (tech of selectedProject.techStack; track tech) {
+								<span class="tech-badge-modal">{{ tech }}</span>
+							}
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-body">
+					<div class="modal-section">
+						<h3 class="modal-section-title">Project Overview</h3>
+						<p class="modal-text">{{ selectedProject.detailedDescription }}</p>
+					</div>
+
+					<div class="modal-section">
+						<h3 class="modal-section-title">Key Features</h3>
+						<ul class="modal-features-list">
+							@for (feature of selectedProject.features; track feature) {
+								<li>{{ feature }}</li>
+							}
+						</ul>
+					</div>
+
+					@if (selectedProject.challenges) {
+						<div class="modal-section">
+							<h3 class="modal-section-title">Challenges & Solutions</h3>
+							<p class="modal-text">{{ selectedProject.challenges }}</p>
+						</div>
+					}
+
+					@if (selectedProject.outcome) {
+						<div class="modal-section">
+							<h3 class="modal-section-title">Outcome</h3>
+							<p class="modal-text outcome-highlight">{{ selectedProject.outcome }}</p>
+						</div>
+					}
+
+					@if (selectedProject.githubLink) {
+						<div class="modal-actions">
+							 @if (selectedProject.demoLink) {
+								<a [href]="selectedProject.demoLink" target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn-primary">
+									<span>Live Demo</span>
+									<span class="btn-arrow">→</span>
+								</a>
+							} 
+							@if (selectedProject.githubLink) {
+								<a [href]="selectedProject.githubLink" target="_blank" rel="noopener noreferrer" class="modal-btn modal-btn-secondary">
+									<span>View Code</span>
+									<span class="btn-arrow">→</span>
+								</a>
+							}
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+}

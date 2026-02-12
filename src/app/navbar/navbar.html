@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom" [class.nav-open]="isNavOpen">
+  <div class="container d-flex align-items-center">
+    <a class="navbar-brand me-auto" href="#">Tallapaneni Markesh</a>
+
+    <!-- Mobile burger -->
+    <button class="nav-burger d-lg-none btn" aria-label="Toggle navigation" (click)="toggleNav()">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+
+    <ul class="navbar-nav ms-auto d-flex flex-row align-items-center">
+      <li class="nav-item px-2"><a class="nav-link" (click)="closeNav()" href="#home">Home</a></li>
+      <li class="nav-item px-2"><a class="nav-link" (click)="closeNav()" href="#about">About</a></li>
+      <li class="nav-item px-2"><a class="nav-link" (click)="closeNav()" href="#skills">Skills</a></li>
+      <li class="nav-item px-2"><a class="nav-link" (click)="closeNav()" href="#experience">Experience</a></li>
+      <li class="nav-item px-2"><a class="nav-link" (click)="closeNav()" href="#projects">Projects</a></li>
+      <li class="nav-item px-2"><a class="nav-link" (click)="closeNav()" href="#education">Education</a></li>
+      <li class="nav-item px-2"><a class="nav-link" (click)="closeNav()" href="#contact">Contact</a></li>
+
+      <!-- Theme toggle -->
+      <!-- <li class="nav-item px-2">
+        <div class="form-check form-switch d-flex align-items-center">
+          <input class="form-check-input" type="checkbox" id="themeToggle" (change)="toggleTheme($event)" [checked]="isDark">
+          <label class="form-check-label muted" for="themeToggle">Dark</label>
+        </div>
+      </li> -->
+    </ul>
+  </div>
+
+  <!-- Off-canvas close overlay for mobile -->
+  @if (isNavOpen) {
+    <div class="nav-overlay d-lg-none" (click)="closeNav()"></div>
+  }
+</nav>
